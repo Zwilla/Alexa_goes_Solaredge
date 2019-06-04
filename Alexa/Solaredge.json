@@ -1,0 +1,110 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "zwilla at solaredge",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": [
+                        "Solaredge all off"
+                    ]
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": [
+                        "Solaredge what can I say"
+                    ]
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": [
+                        "Solaredge stop all"
+                    ]
+                },
+                {
+                    "name": "ControllSolaredgeSmartHome",
+                    "slots": [
+                        {
+                            "name": "Power",
+                            "type": "AMAZON.DeviceType"
+                        }
+                    ],
+                    "samples": [
+                        "Solaredge power"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": [
+                        "Solaredge briefing"
+                    ]
+                },
+                {
+                    "name": "SwitchHeatPump",
+                    "slots": [
+                        {
+                            "name": "HeatPumpSwitch",
+                            "type": "AMAZON.DeviceType"
+                        }
+                    ],
+                    "samples": [
+                        "Solaredge if power over thousand then switch on heat pump"
+                    ]
+                }
+            ],
+            "types": []
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "ControllSolaredgeSmartHome",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.643469722160"
+                    },
+                    "slots": [
+                        {
+                            "name": "Power",
+                            "type": "AMAZON.DeviceType",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Confirm.Intent.643469722160",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "charge battery"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "power heatpump"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "power car charger"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "power everything"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "ok"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "power on heatpump"
+                    }
+                ]
+            }
+        ]
+    }
+}
