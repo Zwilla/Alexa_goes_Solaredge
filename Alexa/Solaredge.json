@@ -26,7 +26,34 @@
                     "slots": [
                         {
                             "name": "Power",
-                            "type": "AMAZON.DeviceType"
+                            "type": "AMAZON.SearchQuery",
+                            "samples": [
+                                "How many {Power} I have"
+                            ]
+                        },
+                        {
+                            "name": "HeatPump",
+                            "type": "AMAZON.DeviceType",
+                            "samples": [
+                                "switch {HeatPump} on",
+                                "switch {HeatPump} off"
+                            ]
+                        },
+                        {
+                            "name": "CarCharger",
+                            "type": "AMAZON.DeviceType",
+                            "samples": [
+                                "{CarCharger} on",
+                                "{CarCharger} off"
+                            ]
+                        },
+                        {
+                            "name": "ChargeBattery",
+                            "type": "AMAZON.DeviceType",
+                            "samples": [
+                                "switch {ChargeBattery} on",
+                                "switch {ChargeBattery} off"
+                            ]
                         }
                     ],
                     "samples": [
@@ -37,18 +64,6 @@
                     "name": "AMAZON.NavigateHomeIntent",
                     "samples": [
                         "Solaredge briefing"
-                    ]
-                },
-                {
-                    "name": "SwitchHeatPump",
-                    "slots": [
-                        {
-                            "name": "HeatPumpSwitch",
-                            "type": "AMAZON.DeviceType"
-                        }
-                    ],
-                    "samples": [
-                        "Solaredge if power over thousand then switch on heat pump"
                     ]
                 }
             ],
@@ -65,10 +80,43 @@
                     "slots": [
                         {
                             "name": "Power",
+                            "type": "AMAZON.SearchQuery",
+                            "confirmationRequired": true,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "confirmation": "Confirm.Slot.1213180061301.851286640574",
+                                "elicitation": "Elicit.Slot.1213180061301.851286640574"
+                            }
+                        },
+                        {
+                            "name": "HeatPump",
                             "type": "AMAZON.DeviceType",
-                            "confirmationRequired": false,
-                            "elicitationRequired": false,
-                            "prompts": {}
+                            "confirmationRequired": true,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "confirmation": "Confirm.Slot.1213180061301.1422578627777",
+                                "elicitation": "Elicit.Slot.1213180061301.1422578627777"
+                            }
+                        },
+                        {
+                            "name": "CarCharger",
+                            "type": "AMAZON.DeviceType",
+                            "confirmationRequired": true,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "confirmation": "Confirm.Slot.1213180061301.436098401191",
+                                "elicitation": "Elicit.Slot.1213180061301.436098401191"
+                            }
+                        },
+                        {
+                            "name": "ChargeBattery",
+                            "type": "AMAZON.DeviceType",
+                            "confirmationRequired": true,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "confirmation": "Confirm.Slot.1213180061301.162082280352",
+                                "elicitation": "Elicit.Slot.1213180061301.162082280352"
+                            }
                         }
                     ]
                 }
@@ -81,15 +129,19 @@
                 "variations": [
                     {
                         "type": "PlainText",
-                        "value": "charge battery"
+                        "value": "ok"
                     },
                     {
                         "type": "PlainText",
-                        "value": "power heatpump"
+                        "value": "{ChargeBattery}"
                     },
                     {
                         "type": "PlainText",
-                        "value": "power car charger"
+                        "value": "power {HeatPump}"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "power {CarCharger}"
                     },
                     {
                         "type": "PlainText",
@@ -97,11 +149,108 @@
                     },
                     {
                         "type": "PlainText",
-                        "value": "ok"
+                        "value": "power on heatpump"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.850426978190.697024518179",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "ok heat pump is off now"
                     },
                     {
                         "type": "PlainText",
-                        "value": "power on heatpump"
+                        "value": "ok heat pump is on now"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1213180061301.1422578627777",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "your {HeatPump} is on"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "your {HeatPump} is off"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1213180061301.162082280352",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "{ChargeBattery} is on"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "{ChargeBattery} is off"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Slot.1213180061301.162082280352",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "ok"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Slot.1213180061301.1422578627777",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "{HeatPump} ok"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1213180061301.436098401191",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "your {CarCharger} is on"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "your {CarCharger} is off"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Slot.1213180061301.436098401191",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "{CarCharger} ok"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1213180061301.851286640574",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "your {Power} is two thousand watt's"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "your {Power} is one thousand watt's"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Slot.1213180061301.851286640574",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "{Power} ok"
                     }
                 ]
             }
