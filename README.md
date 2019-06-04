@@ -6,4 +6,4 @@ Smart Home bridge to Solaredge Inverters
 * Monitor
 * Smarthome on off
 
-# Whishes? = open a issue
+# Wishes? = open a issue
